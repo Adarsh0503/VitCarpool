@@ -1,0 +1,142 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.heading{
+    text-align: center;
+    margin-bottom: 40px;
+    color: rgb(30, 69, 240); /* Add this line to set the color to yellow */
+
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #f2f2f2; /* Light color */
+    color: #333;
+    padding: 10px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #271f96; /* Space themed font color */
+}
+
+.navbar-links .btn {
+    margin-left: 10px;
+    padding: 8px 20px;
+    background-color: #271f96; /* Space themed button color */
+    color: #fff; /* Space themed button text color */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navbar-links .btn:hover {
+    background-color: #1d1570; /* Darker shade for hover */
+}
+
+/* Hero Section Styles */
+.hero {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons .btn {
+    margin-left: 10px;
+    gap:2 rem;
+    padding: 8px 20px;
+    background-color: #271f96; /* Space themed button color */
+    color: #fff; /* Space themed button text color */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.cta-buttons .btn:hover {
+    background-color: #1d1570; /* Darker shade for hover */
+}
+
+
+
+/* Features Section Styles */
+.features {
+    padding: 80px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #111;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff; /* White text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+.card p {
+    font-size: 16px;
+    color: #ccc; /* Light gray text color */
+}
+
+/* Space theme decorations */
+.card-container {
+    background: url('space-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border: 1px solid #fff; /* White border */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
