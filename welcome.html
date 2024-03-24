@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to VITCARPOOL</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .navbar-links .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .welcome-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Form styles */
+        .search-form {
+            margin-top: 20px;
+        }
+        .search-form input[type="text"],
+        .search-form input[type="date"],
+        .search-form input[type="time"] {
+            width: 200px;
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .search-form button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="#" class="logo">VITCARPOOL</a>
+            </div>
+            <div class="navbar-links">
+                <a href="logout.php" class="btn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Welcome Message -->
+    <section class="welcome-section">
+        <div class="container">
+            <h2>Welcome to VITCARPOOL!</h2>
+            <p>You are now logged in to VITCARPOOL. You can now search for rides.</p>
+            
+            <!-- Search Rides Form -->
+            <form action="search.php" method="GET" class="search-form">
+                <input type="text" name="origin" placeholder="Origin" required>
+                <input type="text" name="destination" placeholder="Destination" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <button type="submit">Search Rides</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 VITCARPOOL. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

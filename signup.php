@@ -1,9 +1,8 @@
-<!-- 
-
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 session_start(); // Start the session
-
 
 require_once "db_config.php";
 
@@ -13,6 +12,8 @@ $username_err = $email_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+    echo "Form submitted successfully.";
 
     // Validate username
     if (empty(trim($_POST["username"]))) {
@@ -111,4 +112,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close connection
     $mysqli->close();
 }
-?> -->
+?>
