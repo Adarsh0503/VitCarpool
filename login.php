@@ -6,7 +6,6 @@ $email = $password = "";
 $email_err = $password_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "POST request received";
 
     if (empty(trim($_POST["email"]))) {
         $email_err = "Please enter your email.";
@@ -22,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($email_err) && empty($password_err)) {
 
-        $sql = "SELECT id, email, password FROM users WHERE email = ?";
+        $sql = "SELECT id, email, fullname, password FROM users WHERE email = ?";
 
         if ($stmt = $mysqli->prepare($sql)) {
 
@@ -33,13 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->store_result();
 
                 if ($stmt->num_rows == 1) {
-                    $stmt->bind_result($id, $email, $stored_password); // Fetch the stored plaintext password
+                    $stmt->bind_result($id, $email, $fullname, $stored_password);
                     if ($stmt->fetch()) {
-                        if ($password == $stored_password) { // Compare passwords directly
+                        if ($password == $stored_password) {
                             session_start();
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
+                            $_SESSION["fullname"] = $fullname; // Storing full name in session
                             header("location: welcome.html");
                             exit;
                         } else {

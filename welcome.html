@@ -1,57 +1,105 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to VITCARPOOL</title>
-        <link rel="stylesheet" href="welcome.css">
-    </head>
-    <body>
-        <!-- Navbar -->
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-brand">
-                    <a href="index.html" class="logo">VITCARPOOL</a>
-                </div>
-                <div class="navbar-links">
-                    <a href="logout.php" class="btn">Logout</a>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to VITCARPOOL</title>
+    <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html" class="logo">VITCARPOOL</a>
             </div>
-        </nav>
+            <div class="navbar-links">
+                <a href="profile.php" class="btn">Profile</a> 
+                <a href="logout.php" class="btn">Logout</a>
+            </div>
+        </div>
+    </nav>
 
-        <section class="hero">
-            <div class="container">
-                <div class="heading">
-                    <h1>Welcome to VITCARPOOL !</h1>
-                    <p>Find your trip buddy here</p>
-                </div>
-                <h1>Share Rides, Save Money</h1>
-                <p>Connect with fellow students and reduce your travel expenses</p>
+    <section class="hero">
+        <div class="container">
+            <div class="heading">
+                <h1>Welcome to VITCARPOOL !</h1>
+                <p>Find your trip buddy here</p>
             </div>
-        </section>
+            <h1>Share Rides, Save Money</h1>
+            <p>Connect with fellow students and reduce your travel expenses</p>
+            <a href="trip_posting.html" class="btn">Post Your Trip</a> <!-- Add this line -->
+        </div>
+    </section>
 
-        <!-- Welcome Message -->
-        <section class="welcome-section">
-            <div class="container">
-              
-                <h4>You are now logged in to VITCARPOOL. <br/><br/>You can now search for rides.</h4>
-                
-                <!-- Search Rides Form -->
-                <form action="search.php" method="GET" class="search-form">
-                    <input type="text" name="origin" placeholder="Origin" required>
-                    <input type="text" name="destination" placeholder="Destination" required>
-                    <input type="date" name="date" required>
-                    <input type="time" name="time" required>
-                    <button type="submit" class="btn">Search Rides</button>
-                </form>
-            </div>
-        </section>
+    <!-- Welcome Message -->
+    <section class="welcome-section">
+        <div class="container">
+            <h4>Hi <span id="fullName"></span>, You are now logged in to VITCARPOOL.</h4>
+            <p>You can now search for rides.</p>
+            <button id="searchFormButton" class="btn">Search for Rides</button>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p>&copy; 2024 VITCARPOOL. All rights reserved.</p>
-            </div>
-        </footer>
-    </body>
-    </html>
+            <!-- Search Rides Form -->
+            <form id="searchForm" class="search-form" style="display: none;">
+                <input type="text" name="origin" placeholder="Origin" required>
+                <input type="text" name="destination" placeholder="Destination" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <button type="submit" class="btn">Search Rides</button>
+            </form>
+
+            <!-- Display search results here -->
+           <!-- Display search results here -->
+<div id="searchResults" class="clearfix">
+
+
+
+
+    
+</div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 VITCARPOOL. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- <script src="welcome.js"></script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchFormButton = document.getElementById("searchFormButton");
+            const searchForm = document.getElementById("searchForm");
+            const searchResults = document.getElementById("searchResults");
+        
+            searchFormButton.addEventListener("click", function() {
+                searchForm.style.display = "block";
+            });
+        
+            searchForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+        
+                // Get form data
+                const formData = new FormData(searchForm);
+                const origin = formData.get("origin");
+                const destination = formData.get("destination");
+                const date = formData.get("date");
+        
+                // Fetch search results using search_users.php
+                fetch(`search_users.php?origin=${origin}&destination=${destination}&date=${date}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        searchResults.innerHTML = data; // Display search results
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            });
+        });
+        </script>
+        
+</body>
+</html>
