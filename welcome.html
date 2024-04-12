@@ -48,25 +48,20 @@
                 <button type="submit" class="btn">Search Rides</button>
             </form>
 
-            <!-- Display search results here -->
-           <!-- Display search results here -->
-<div id="searchResults" class="clearfix">
+           
+<div id="searchResults" style="background-color: rgb(247, 243, 250);" >
 
-
-
-
-    
 </div>
 
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="container">
             <p>&copy; 2024 VITCARPOOL. All rights reserved.</p>
         </div>
-    </footer>
+    </footer> -->
 
     <!-- <script src="welcome.js"></script> -->
     <script>
@@ -92,7 +87,7 @@
                 fetch(`search_users.php?origin=${origin}&destination=${destination}&date=${date}`)
                     .then(response => response.text())
                     .then(data => {
-                        searchResults.innerHTML = data; // Display search results
+                        searchResults.innerHTML = data; 
                     })
                     .catch(error => {
                         console.error("Error:", error);

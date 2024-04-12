@@ -14,7 +14,9 @@ if(isset($_GET["origin"], $_GET["destination"], $_GET["date"])) {
     $destination = $_GET["destination"];
     $date = $_GET["date"];
 
-    // Prepare and execute SQL statement to search for trips based on the criteria
+   
+
+    
     $sql = "SELECT u.fullname, u.email FROM users u INNER JOIN trip t ON u.id = t.user_id WHERE t.origin = ? AND t.destination = ? AND t.date = ?";
     if ($stmt = $mysqli->prepare($sql)) {
         $stmt->bind_param("sss", $origin, $destination, $date);
@@ -23,6 +25,7 @@ if(isset($_GET["origin"], $_GET["destination"], $_GET["date"])) {
             if ($result->num_rows > 0) {
                 // Display user details as a table inside the searchResults div
                 echo '<div id="searchResults">';
+                echo '<h2 class="text-center">Travel Buddy List</h2>';
                 echo '<table >';
                 echo '<thead><tr><th>Full Name</th><th>Email</th></tr></thead>';
                 echo '<tbody>';

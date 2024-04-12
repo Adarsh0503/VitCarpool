@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             exit;
                         } else {
                             $password_err = "The password you entered was not valid.";
+                            echo 'The password you entered was not valid.';
                         }
                     }
                 } else {

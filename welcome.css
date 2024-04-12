@@ -134,7 +134,6 @@ tbody tr:nth-child(even) {
 }
 
 #searchResults {
-    background-color: blue;
     margin: 20px auto; /* Center the div horizontally */
     padding: 20px; /* Add padding from all sides */
     overflow-x: auto; /* Add horizontal scrollbar if needed */

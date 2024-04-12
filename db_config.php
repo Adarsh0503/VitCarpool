@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "carpool"; // Replace with your database name
+$username = "root"; 
+$password = ""; 
+$dbname = "carpool"; 
 
 // Create connection
 $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -11,5 +11,5 @@ $mysqli = new mysqli($servername, $username, $password, $dbname);
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
-echo "Connected successfully";
+// echo "Connected successfully";
 ?>

@@ -2,7 +2,7 @@
 session_start();
 require_once "db_config.php";
 
-// Check if the form was submitted to search for trips
+// Check for the form submission to search for trips
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["search"])) {
     // Retrieve form data
     $origin = $_GET["origin"];
@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["search"])) {
     $date = $_GET["date"];
     $time = $_GET["time"];
 
-    // Prepare and execute SQL statement to search for trips
+   
     $sql_select = "SELECT * FROM trip WHERE origin = ? AND destination = ? AND date = ? AND time = ?";
     if ($stmt_select = $mysqli->prepare($sql_select)) {
         $stmt_select->bind_param("ssss", $origin, $destination, $date, $time);
